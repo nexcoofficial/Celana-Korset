@@ -106,7 +106,26 @@
         .related-price-was { font-size: 9px; color: #999; text-decoration: line-through; }
         .related-btn { margin-top: 8px; font-size: 10px; font-weight: 800; color: #fff; text-align: center; padding: 8px; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
     </style>
-</head>
+
+    <style>
+      /* Prevent selection */
+      body {
+        -webkit-user-select: none !important;
+         -moz-user-select: none !important;
+          -ms-user-select: none !important;
+              user-select: none !important;
+      }
+      /* Prevent image drag and save */
+      img {
+        -webkit-user-drag: none !important;
+        -khtml-user-drag: none !important;
+        -moz-user-drag: none !important;
+        -o-user-drag: none !important;
+        user-drag: none !important;
+        pointer-events: none !important;
+      }
+    </style>
+    </head>
 <body>
     <div class="container">
         <div class="swiper product-swiper" id="main-slider"><div class="swiper-wrapper"><div class="swiper-slide"><img src="" id="main-product-img" style="width:100%; height:100%; object-fit:contain;"></div><div class="swiper-slide"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd4a-lvbbvb5da3t060.webp"  style="width:100%; height:100%; object-fit:contain;"></div><div class="swiper-slide"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd3z-lvbbvbdeybyw1e.webp"  style="width:100%; height:100%; object-fit:contain;"></div><div class="swiper-slide"><img src="https://down-id.img.susercontent.com/file/sg-11134201-824i2-mprs75l7o1dua5.webp"  style="width:100%; height:100%; object-fit:contain;"></div><div class="swiper-slide"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd6i-lvbbvbmalc9df8.webp"  style="width:100%; height:100%; object-fit:contain;"></div><div class="swiper-slide"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd60-lvbbvbqgf9496a.webp"  style="width:100%; height:100%; object-fit:contain;"></div><div class="swiper-slide"><img src="https://down-id.img.susercontent.com/file/sg-11134201-7rd4l-lvbbvbuc9kcd6d.webp"  style="width:100%; height:100%; object-fit:contain;"></div></div><div class="swiper-pagination"></div></div>
@@ -732,6 +751,35 @@ Garansi: 100% Original</div>
           setInterval(showSocialProof, intervalSec * 1000);
         }, 1200);
       })();
+    </script>
+    
+    <script>
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+      }, false);
+      
+      // Disable inspect element shortcut keys
+      document.addEventListener('keydown', function(e) {
+        if (
+          e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'C' || e.key === 'c' || e.key === 'J' || e.key === 'j')) ||
+          (e.ctrlKey && (e.key === 'U' || e.key === 'u'))
+        ) {
+          e.preventDefault();
+        }
+      }, false);
+
+      // Disable image dragging and selectstart events
+      document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+          e.preventDefault();
+        }
+      }, false);
+      
+      document.addEventListener('selectstart', function(e) {
+        e.preventDefault();
+      }, false);
     </script>
     </body>
 </html>
